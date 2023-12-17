@@ -81,6 +81,20 @@
 
 // console.log(checkNum());
 
+function checkNum(){
+
+
+  const num = prompt("Введіть число")
+  for(let i = 1; i <= num; i++){
+    if(i % 3 === 0 && i % 5 === 0) {console.log(`${i} is fizzbuzz`)}
+    else if(i % 3 === 0) {console.log(`${i} is fizz`)}
+    else if(i % 5 === 0) {console.log(`${i} is buzz`)}
+    else {console.log(`${i} is not fizz and buzz`)}
+  }
+}
+
+checkNum();
+
 // Змінна num може набувати 4 значення: 1, 2, 3 або 4. Якщо вона має
 // значення '1', то у змінну result запишемо 'зима', якщо має значення
 // '2' - 'весна' і так далі.
@@ -149,18 +163,18 @@
 // Визначте до якої чверті години входить
 // це число(в першу, другу, треттю чи четверту).
 
-const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
+// const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
 
-if(minuteValue <= 15) {
-  console.log(`${minuteValue} - перша чверть`)
-} else 
-if(minuteValue <= 30) {
-  console.log(`${minuteValue} - друга чверть`)
-} else
-if(minuteValue <= 45) {
-  console.log(`${minuteValue} - третя чверть`)
-} else {
-  console.log(`${minuteValue} - четверта чверть`)
-}
+// if(minuteValue <= 15) {
+//   console.log(`${minuteValue} - перша чверть`)
+// } else 
+// if(minuteValue <= 30) {
+//   console.log(`${minuteValue} - друга чверть`)
+// } else
+// if(minuteValue <= 45) {
+//   console.log(`${minuteValue} - третя чверть`)
+// } else {
+//   console.log(`${minuteValue} - четверта чверть`)
+// }
 
 
