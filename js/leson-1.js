@@ -71,12 +71,37 @@
 //fizz якщо ділитися на 5 повертати buzz
 //Якщо ділитися на 3 і на 5 повернути fizzbuzz
 
-function checkNum(){
-   const num = prompt("Введіть число")
+// function checkNum(){
+//    const num = prompt("Введіть число")
 
-   if(num % 3 === 0 && num % 5 === 0) return "fizzbuzz";
-   if(num % 3 === 0) return "fizz";
-   if(num % 5 === 0) return "buzz";
+//    if(num % 3 === 0 && num % 5 === 0) return "fizzbuzz";
+//    if(num % 3 === 0) return "fizz";
+//    if(num % 5 === 0) return "buzz";
+// }
+
+// console.log(checkNum());
+
+// Змінна num може набувати 4 значення: 1, 2, 3 або 4. Якщо вона має
+// значення '1', то у змінну result запишемо 'зима', якщо має значення
+// '2' - 'весна' і так далі.
+
+const num = Number(prompt("Введдіть число від 1 до 4"))
+let result = ""
+switch (num) {
+   case 1: 
+      result = 'зима'
+      break;
+   case 2:
+      result = 'весна'
+      break;
+   case 3: 
+   result = 'літо'
+      break;
+      case 4:
+      result = 'осінь'
+      break;
+   default:
+      result = "спробуйте ще раз ввести число від 1 до 4"
+      
 }
-
-console.log(checkNum());
+console.log (result)
