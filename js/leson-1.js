@@ -32,3 +32,51 @@
 // console.log(`${hours}:${minutes}`);
 
 //////////////////////////////////////////////////////////////////////////////
+
+//Напишіть цикл, який виводить в консоль
+//числа от max до min по зменьшенню
+//Виведіть в консоль суму усіх парних чисел
+// const min = 2;
+// const max = 15;
+// let total = 0;
+
+// for(let i = max; i >= min; i--){
+//     console.log(i);
+//     if(i % 2 === 0){
+//         total += i;
+//     }
+// }
+
+//console.log(total);
+
+// function total(min, max){
+//     let total = 0;
+
+//     for(let i = max; i >= min; i--){
+//         console.log(i);
+//         if(i % 2 === 0){
+//             total += i;
+//         }
+//     }
+
+//     return total;
+// }
+
+// console.log(total(2, 15));
+// console.log(total(4, 7));
+// console.log(total(11, 20));
+// console.log(total(1, 3));
+
+//Якщо число ділитися на 3 повертати
+//fizz якщо ділитися на 5 повертати buzz
+//Якщо ділитися на 3 і на 5 повернути fizzbuzz
+
+function checkNum(){
+   const num = prompt("Введіть число")
+
+   if(num % 3 === 0 && num % 5 === 0) return "fizzbuzz";
+   if(num % 3 === 0) return "fizz";
+   if(num % 5 === 0) return "buzz";
+}
+
+console.log(checkNum());
