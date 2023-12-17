@@ -123,18 +123,44 @@
 //то вивести рядок "Вітаю!"
 //в іншому випадку виводити рядок "Невірний пароль!"
 
-const login = prompt("Введіть логін");
-console.log(login);
-if (login === "Адмін") {
-  const password = prompt("Введіть пароль");
-  //   if (password === "Я головний") {
-  //     alert("Вітаю!");
-  //   } else {
-  //     alert("Невірний пароль!");
-  //   }
-  alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!");
-} else if (login === "" || login === null) {
-  alert("Скасовано");
+// const login = prompt("Введіть логін");
+// console.log(login);
+// if (login === "Адмін") {
+//   const password = prompt("Введіть пароль");
+//   //   if (password === "Я головний") {
+//   //     alert("Вітаю!");
+//   //   } else {
+//   //     alert("Невірний пароль!");
+//   //   }
+//   alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!");
+// } else if (login === "" || login === null) {
+//   alert("Скасовано");
+// } else {
+//   alert("Я вас не знаю");
+// }
+
+
+
+
+
+// -------------------------------------------- //
+
+// В змінній minuteValue є число від 0 до 59.
+// Визначте до якої чверті години входить
+// це число(в першу, другу, треттю чи четверту).
+
+const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
+
+if(minuteValue <= 15) {
+  console.log(`${minuteValue} - перша чверть`)
+} else 
+if(minuteValue <= 30) {
+  console.log(`${minuteValue} - друга чверть`)
+} else
+if(minuteValue <= 45) {
+  console.log(`${minuteValue} - третя чверть`)
 } else {
-  alert("Я вас не знаю");
+  console.log(`${minuteValue} - четверта чверть`)
 }
+
+
