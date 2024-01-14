@@ -25,3 +25,40 @@
 // }
 
 // logItems(styles)
+
+
+
+
+
+// Напиши функцію, яка перебирає масив логінів і перевіряє
+// чи є ім'я введене в інпут у цьому масиві і у разі,
+// якщо є - виводить повідомлення "Доступ дозволено"
+// в іншому випадку - "Користувач не знайден"
+
+//const logins = ["Peter", "John", "Igor", "Sasha"];
+
+////function checkLogin() {
+//    const login = prompt('enter your login');
+//    if (logins.includes(login)) {
+//        return "Доступ дозволено";
+//    }  
+//    else {
+//        return "Користувач не знайден";
+//    }
+//    
+//}
+
+//console.log(checkLogin()) 
+
+
+// Наступна функція повертає true, якщо параметр age більше 18.
+// В іншому випадку вона запитує підтвердження через confirm і повертає його результат:
+ const age = prompt("Enter your age");
+
+function checkAge() {
+            return age < 18 ? confirm ("Your age > 18") : true;
+    
+  
+}
+
+console.log(checkAge());
