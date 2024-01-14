@@ -41,24 +41,62 @@
 //    const login = prompt('enter your login');
 //    if (logins.includes(login)) {
 //        return "Доступ дозволено";
-//    }  
+//    }
 //    else {
 //        return "Користувач не знайден";
 //    }
-//    
+//
 //}
 
-//console.log(checkLogin()) 
+//console.log(checkLogin())
 
 
 // Наступна функція повертає true, якщо параметр age більше 18.
 // В іншому випадку вона запитує підтвердження через confirm і повертає його результат:
- const age = prompt("Enter your age");
+//  const age = prompt("Enter your age");
 
-function checkAge() {
-            return age < 18 ? confirm ("Your age > 18") : true;
+// function checkAge() {
+//             return age < 18 ? confirm ("Your age > 18") : true;
     
   
-}
+// }
 
-console.log(checkAge());
+// console.log(checkAge());
+
+//Напишіть функції для роботи з масивом
+//add(name) додає ім'я до кінця колекції
+//remove(name) видаляє ім'я із колекції
+//update(oldName, newName) змінює ім'я на нове
+
+const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
+
+function add(name) {
+    if (names.includes(name)) {
+        return "try another name"
+    }
+    names.push(name)
+    return "name added"
+}
+console.log(add("Natalka"))
+
+function remove(name) {
+    const del = names.indexOf(name)
+    if (del === -1) {
+     return 'not found. input next'
+    }
+    names.splice(del, 1)
+    return 'Name deleted'
+}
+console.log(remove('Petro'))
+
+function update(oldName, newName) {
+    const change = names.indexOf(oldName)
+    if (change === -1) {
+       return 'not found. input next'
+    }
+    names.splice(change, 1, newName)
+return 'name changed'
+}
+console.log(update("Max", "Alex"))
+
+console.log(names)
