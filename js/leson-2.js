@@ -26,10 +26,6 @@
 
 // logItems(styles)
 
-
-
-
-
 // Напиши функцію, яка перебирає масив логінів і перевіряє
 // чи є ім'я введене в інпут у цьому масиві і у разі,
 // якщо є - виводить повідомлення "Доступ дозволено"
@@ -50,15 +46,13 @@
 
 //console.log(checkLogin())
 
-
 // Наступна функція повертає true, якщо параметр age більше 18.
 // В іншому випадку вона запитує підтвердження через confirm і повертає його результат:
 //  const age = prompt("Enter your age");
 
 // function checkAge() {
 //             return age < 18 ? confirm ("Your age > 18") : true;
-    
-  
+
 // }
 
 // console.log(checkAge());
@@ -124,7 +118,6 @@
 // console.log(calculator.mult());
 // console.log(calculator.sum());
 
-
 //5. Напишіть скрипт керування особистим кабінетом інтернет банка
 //Є об'єкт account в якому необхідно реалізувати
 //методи для работи з балансом та історією транзакцій
@@ -132,20 +125,20 @@
 //Типів транзакцій всього два.
 //Можна покласти або зняти гроші з рахунка
 const Transaction = {
-    DEPOSIT: "deposit",
-    WITHDRAW: "withdraw",
-  };
-  
-  //Кожна транзакція це об'єкт з властивостями id, type, amount
-  
-  const account = {
-    //поточний баланс рахунка
-    balance: 0,
-  
-    //Історія транзакцій
-    transactions: [],
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
 
-    //Метод створює і повертає об'єкт транзакцій
+//Кожна транзакція це об'єкт з властивостями id, type, amount
+
+const account = {
+  //поточний баланс рахунка
+  balance: 0,
+
+  //Історія транзакцій
+  transactions: [],
+
+  //Метод створює і повертає об'єкт транзакцій
   //Приймає сумму і тип транзакцій
   createTransaction(type, amount) {
     return {
@@ -154,42 +147,67 @@ const Transaction = {
     };
   },
 
-//Метод відповідає за додавання сумми к балансу.
+  //Метод відповідає за додавання сумми к балансу.
   //Приймає сумму транзакціи.
   //Визиває createTransaction для створення об'єкта транзакціи
   //після чого додає його в історію транзакцій
-  deposit(amount) { 
+  deposit(amount) {
     this.balance += amount;
     const newTransaction = this.createTransaction(Transaction.DEPOSIT, amount);
     // newTransaction.id = Math.random();
     // this.transactions.push(newTransaction)
-    this.transactions.push({...newTransaction, id: Math.random})
-   },
+    this.transactions.push({ ...newTransaction, id: Math.random() });
+  },
 
-//Метод відповідає за зняття сумми з балансу.
+  //Метод відповідає за зняття сумми з балансу.
   //Приймає сумму транзакціи.
   //Визиває createTransaction для створення об'єкта транзакціи
   //після чого додає йогого в історю транзакцій
   //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
   //що недостатньо коштів на рахунку
-  withdraw(amount) { 
-    if (amount > this.balance){
-        return "Not money"
+  withdraw(amount) {
+    if (amount > this.balance) {
+      return "Not money";
     }
     this.balance -= amount;
     const newTransaction = this.createTransaction(Transaction.WITHDRAW, amount);
-    this.transactions.push({...newTransaction, id: Math.random})
-   },
+    this.transactions.push({ ...newTransaction, id: 1 });
+  },
 
-//Метод повертає поточний баланс
-  getBalance() { 
-    return `Your balance ${this.balance}`
-   },
+  //Метод повертає поточний баланс
+  getBalance() {
+    return `Your balance ${this.balance}`;
+  },
 
-//Метод шукає і повертає об'єкт транзакціи по id
-  getTransactionDetails(id) {  },
+  //Метод шукає і повертає об'єкт транзакціи по id
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (id === transaction.id) {
+        return transaction;
+      }
+    }
+    return "not found";
+  },
 
   //Метод повертає кількіств коштів вказаного типу
   //транзакціи зі всієї історії транзакцій
-  getTransactionType(type) {},
-}
+  getTransactionType(type) {
+    let sum = 0;
+    for (const transaction of this.transactions) {
+      if (type === transaction.type) {
+        sum += transaction.amount;
+      }
+    }
+    return sum;
+  },
+};
+
+account.deposit(30);
+account.deposit(59);
+account.withdraw(24);
+console.log(account.withdraw(139));
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(1));
+console.log(account.getTransactionType(Transaction.DEPOSIT));
+
+console.log(account);
