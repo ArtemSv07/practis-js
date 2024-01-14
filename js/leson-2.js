@@ -68,35 +68,60 @@
 //remove(name) видаляє ім'я із колекції
 //update(oldName, newName) змінює ім'я на нове
 
-const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
+// const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
 
-function add(name) {
-    if (names.includes(name)) {
-        return "try another name"
+// function add(name) {
+//     if (names.includes(name)) {
+//         return "try another name"
+//     }
+//     names.push(name)
+//     return "name added"
+// }
+// console.log(add("Natalka"))
+
+// function remove(name) {
+//     const del = names.indexOf(name)
+//     if (del === -1) {
+//      return 'not found. input next'
+//     }
+//     names.splice(del, 1)
+//     return 'Name deleted'
+// }
+// console.log(remove('Petro'))
+
+// function update(oldName, newName) {
+//     const change = names.indexOf(oldName)
+//     if (change === -1) {
+//        return 'not found. input next'
+//     }
+//     names.splice(change, 1, newName)
+// return 'name changed'
+// }
+// console.log(update("Max", "Alex"))
+
+// console.log(names)
+
+//4. Створіть об'єкт calculator з трьомя методами
+//read(a, b) - приймає два аргумента і зберігає їх
+//як властивості об'єкта
+//sum() повертає сумму збереженних значень (з перевіркою на наявніст властивостей в об'єкті)
+//mult() перемножає збереженні значення і повертає результат
+
+const calculator = {
+    read(a, b){
+        this.a = a;
+        this.b = b;
+    },
+    sum(){
+        console.log(this.a + this.b)
+        return  Number.isNaN(this.a + this.b) ? "No exist" : this.a + this.b;
+    },
+    mult(){
+        return  Number.isNaN(this.a * this.b) ? "No exist" : this.a * this.b;
     }
-    names.push(name)
-    return "name added"
 }
-console.log(add("Natalka"))
+//calculator.read(5, 10);
+console.log(calculator.mult());
+console.log(calculator.sum());
 
-function remove(name) {
-    const del = names.indexOf(name)
-    if (del === -1) {
-     return 'not found. input next'
-    }
-    names.splice(del, 1)
-    return 'Name deleted'
-}
-console.log(remove('Petro'))
 
-function update(oldName, newName) {
-    const change = names.indexOf(oldName)
-    if (change === -1) {
-       return 'not found. input next'
-    }
-    names.splice(change, 1, newName)
-return 'name changed'
-}
-console.log(update("Max", "Alex"))
-
-console.log(names)
