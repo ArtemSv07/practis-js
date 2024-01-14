@@ -81,19 +81,19 @@
 
 // console.log(checkNum());
 
-function checkNum(){
+// function checkNum(){
 
 
-  const num = prompt("Введіть число")
-  for(let i = 1; i <= num; i++){
-    if(i % 3 === 0 && i % 5 === 0) {console.log(`${i} is fizzbuzz`)}
-    else if(i % 3 === 0) {console.log(`${i} is fizz`)}
-    else if(i % 5 === 0) {console.log(`${i} is buzz`)}
-    else {console.log(`${i} is not fizz and buzz`)}
-  }
-}
+//   const num = prompt("Введіть число")
+//   for(let i = 1; i <= num; i++){
+//     if(i % 3 === 0 && i % 5 === 0) {console.log(`${i} is fizzbuzz`)}
+//     else if(i % 3 === 0) {console.log(`${i} is fizz`)}
+//     else if(i % 5 === 0) {console.log(`${i} is buzz`)}
+//     else {console.log(`${i} is not fizz and buzz`)}
+//   }
+// }
 
-checkNum();
+// checkNum();
 
 // Змінна num може набувати 4 значення: 1, 2, 3 або 4. Якщо вона має
 // значення '1', то у змінну result запишемо 'зима', якщо має значення
