@@ -81,38 +81,118 @@
 //Додай методи addNote(note), removeNote(noteText)
 //updatePriority(noteText, newPriority)
 
-class Notes {
-  static Priority = {
-    HIGHT: "hight",
-    MIDDLE: "middle",
-    LOW: "low",
-  }
-  constructor() {
-    this.items = [];
-}
-  addNote(note) {
-    this.items.push(note);
-}
-  removeNote(noteText) {
-    this.items = this.items.filter(note => note.text !== noteText)  
-  }
+// class Notes {
+//   static Priority = {
+//     HIGHT: "hight",
+//     MIDDLE: "middle",
+//     LOW: "low",
+//   }
+//   constructor() {
+//     this.items = [];
+// }
+//   addNote(note) {
+//     this.items.push(note);
+// }
+//   removeNote(noteText) {
+//     this.items = this.items.filter(note => note.text !== noteText)  
+//   }
   
-  updatePriority(noteText, newPriority) {
-    const note = this.items.find(note => note.text === noteText)
-    if (note) {
-      note.priority = newPriority
+//   updatePriority(noteText, newPriority) {
+//     const note = this.items.find(note => note.text === noteText)
+//     if (note) {
+//       note.priority = newPriority
+//     }
+//   }
+  
+// }
+
+// const notes = new Notes();
+// notes.addNote({ text: "Hello, World", priority: Notes.Priority.HIGHT})
+// notes.addNote({ text: "I studied English", priority: Notes.Priority.LOW})
+// notes.addNote({ text: "I have e motobike", priority: Notes.Priority.MIDDLE })
+// notes.removeNote("Hello, World")
+// notes.updatePriority("I studied English", Notes.Priority.HIGHT)
+
+
+
+// console.log(notes)
+
+// 4. Створити клас Worker, у якого є властивості name, age, salary.
+//У класу Worker є метод getSalary, який повертає повідомлення
+//"Worker <name> has salary <salary> dollars"
+//Створити клас TopLevelWorker, у якого є властивість position
+//і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+
+// class Worker{
+
+// constructor(name, age, salary){
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+// }
+
+// getSalary(){
+//     return `Worker ${this.name} has salary ${this.salary} dollars`;
+// }
+
+// }
+
+// class TopLevelWorker extends Worker{
+//     constructor(name, age, salary, position){
+//         super(name, age, salary);
+//         this.position = position;
+//     }
+
+//     getPosition(){
+//         return `${this.name} works as ${this.position}`;
+//     }
+
+// }
+
+// const topLevelWorker = new TopLevelWorker("Danil", 22, 100000000, "sales")
+// console.log(topLevelWorker.getPosition());
+// console.log(topLevelWorker.getSalary());
+
+
+// Створити список
+// Створити кнопки Add, Remove, які будуть змінювати склад списку
+// Створити input, з якого отримаємо значення, що буде передано в li
+// Парним лі вказати жовтий фон, непарним синій
+// Використовуй createElement
+
+const buttonAdd = document.createElement("button");
+buttonAdd.textContent = "ADD";
+const buttonRemove = document.createElement("button");
+buttonRemove.textContent = "REMOVE"
+const input = document.createElement("input");
+const list = document.createElement("ol");
+document.body.append(input, buttonAdd, buttonRemove, list);
+
+buttonAdd.addEventListener("click", addLi);
+
+function addLi(){
+    const textLi = input.value.trim();
+    if(!textLi){
+        return;
     }
-  }
-  
+    const li = document.createElement("li");
+    li.textContent = textLi;
+    list.append(li);
+    input.value = "";
+    if(list.children.length % 2 === 0){
+        li.style.backgroundColor = "yellow"
+    }
+    else{
+        li.style.backgroundColor = "blue"
+    }
 }
 
-const notes = new Notes();
-notes.addNote({ text: "Hello, World", priority: Notes.Priority.HIGHT})
-notes.addNote({ text: "I studied English", priority: Notes.Priority.LOW})
-notes.addNote({ text: "I have e motobike", priority: Notes.Priority.MIDDLE })
-notes.removeNote("Hello, World")
-notes.updatePriority("I studied English", Notes.Priority.HIGHT)
+buttonRemove.addEventListener("click", removeLi);
 
+function removeLi(){
+    if(list.lastChild){
+    list.lastChild.remove();
+    }
+}
 
-
-console.log(notes)
