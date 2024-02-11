@@ -32,10 +32,7 @@
 //     randomElement.style.right = randomither(100) + "%";
 // }
 
-
 //===================================================================================
-
- 
 
 /*
 Завдання 8
@@ -44,43 +41,92 @@
 інформацією про те, яка кнопка була натиснута скільки разів.
 */
 
-const list = document.querySelector(".statList");
-const result = document.querySelector("#resultButton");
-const resultSection = document.querySelector("#resultSection")
-let counter = 0;
-let buttonClickCounter = {};
+// const list = document.querySelector(".statList");
+// const result = document.querySelector("#resultButton");
+// const resultSection = document.querySelector("#resultSection")
+// let counter = 0;
+// let buttonClickCounter = {};
 
-list.addEventListener("click", handleCalculate)
-result.addEventListener("click", showResult)
+// list.addEventListener("click", handleCalculate)
+// result.addEventListener("click", showResult)
 
+// function showResult(){
 
+//     let markup = `Загальна кількість ${counter}<br>`;
 
-function showResult(){
+//     for(const [name, count] of Object.entries(buttonClickCounter)){
+//         markup += `${name} натиснута ${count} разів <br>`;
+//     }
+//     resultSection.innerHTML = markup;
+//     buttonClickCounter = {};
+//     counter = 0;
+// }
 
-    let markup = `Загальна кількість ${counter}<br>`;
-    
-    for(const [name, count] of Object.entries(buttonClickCounter)){
-        markup += `${name} натиснута ${count} разів <br>`;
-    }
-    resultSection.innerHTML = markup;
-    buttonClickCounter = {};
-    counter = 0;
-}
+// function handleCalculate(event){
+//     if(event.target.nodeName !== "BUTTON") return;
 
-function handleCalculate(event){
-    if(event.target.nodeName !== "BUTTON") return;
+//     const buttonText = event.target.textContent;
 
-    const buttonText = event.target.textContent;
+//     counter += Number(event.target.dataset.number);
 
-    counter += Number(event.target.dataset.number);
+//     if(buttonClickCounter[buttonText]){
+//         buttonClickCounter[buttonText] += 1;
+//     }
+//     else{
+//         buttonClickCounter[buttonText] = 1;
+//     }
+// }
 
-    if(buttonClickCounter[buttonText]){
-        buttonClickCounter[buttonText] += 1;
-    }
-    else{
-        buttonClickCounter[buttonText] = 1;
-    }
-}
+/////////////////////////////////////////////////////////////
 
+// Створити червоний квадрат розміром 50 на 50 рх
+// Додати кнопку "Зменшити", яка робить квадрат менше на 10 пікселів
+// Додати кнопку "Збільшити", яка робить його більше на 10 пікселів.
+// const div = document.createElement("div");
+// const box = document.createElement("div");
+// let size = 50;
 
+// box.style.height = `${size}px`;
+// box.style.width = `${size}px`;
+// box.style.backgroundColor = "red";
 
+// const butttonDecr = document.createElement("button");
+// butttonDecr.textContent = "Зменшити";
+// const butttonIncr = document.createElement("button");
+// butttonIncr.textContent = "Збільшити";
+// div.append(butttonDecr, butttonIncr, box);
+
+// document.body.append(div);
+
+// div.addEventListener("click", resize);
+
+// function resize(event) {
+//   if (event.target.nodeName !== "BUTTON") {
+//     return;
+//   }
+
+//   if (event.target.textContent === "Зменшити" && size > 0) size -= 10;
+//   if (event.target.textContent === "Збільшити") size += 10;
+
+//   box.style.height = `${size}px`;
+//   box.style.width = `${size}px`;
+// }
+///////////////////////////////////////////////////////////////////////
+
+//  При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+// const table = document.querySelector("#productTable");
+// table.addEventListener("click", chooseProduct);
+
+// const productDetails = document.querySelector("#productDetails");
+
+// function chooseProduct(event) {
+//   if (event.target.nodeName !== "TD") return;
+
+//   const parent = event.target.parentNode;
+//   const product = parent.firstElementChild.textContent;
+//   const price = parent.lastElementChild.textContent;
+//   productDetails.textContent = `Ви вибрали ${product} за ${price}`;
+// }
