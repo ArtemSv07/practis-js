@@ -130,3 +130,82 @@
 //   const price = parent.lastElementChild.textContent;
 //   productDetails.textContent = `Ви вибрали ${product} за ${price}`;
 // }
+
+
+
+// Якщо імейл і пароль користувача збігаються, зберігай дані з форми при сабміті
+// у локальне сховище і змінюй кнопку login на logout і роби поля введення
+// недоступними для змін.
+
+// При перезавантаженні сторінки, якщо користувач залогінений, ми маємо бачити logout-кнопку
+// та недоступні для зміни поля з даними користувача.
+// Клік по кнопці logout повертає все до початкового вигляду і видаляє дані користувача
+// З локального сховища.
+
+// Якщо введені дані не збігаються з потрібними даними, викликати аlert і
+// повідомляти про помилку.
+
+const USER_DATA = {
+  email: "user@mail.com",
+  password: "secret",
+};
+
+const STORAGE_KEY = 'login-form'
+
+const form = document.querySelector('.login-form');
+const email = document.querySelector('[name=email]');
+const password = document.querySelector('input[name=password]');
+const btn = document.querySelector('.login-btn');
+
+form.addEventListener('submit', onFormSubmit);
+function onFormSubmit(event) {
+  event.preventDefault()
+  if (btn.textContent === 'Logout') {
+    localStorage.removeItem(STORAGE_KEY)
+    form.reset()
+    email.removeAttribute('readonly')
+    password.removeAttribute('readonly')
+    btn.textContent = 'Login'
+    return;
+  }
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+
+  if (emailValue === '' || passwordValue === '') {
+    iziToast.warning({
+      message: 'Ви забули ввести email та/або password',
+  });
+  return
+  }
+
+  if (emailValue !== USER_DATA.email || passwordValue !== USER_DATA.password) {
+    iziToast.error({
+      title: 'Помилка!',
+      message: 'Неправильні email чи password',
+  });
+  return
+  }
+
+  const userData = {
+    email: emailValue,
+    password: passwordValue,
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(userData))
+
+  btn.textContent = 'Logout';
+  email.setAttribute('readonly', true);
+  password.setAttribute('readonly', true);
+};
+
+const savedData = localStorage.getItem(STORAGE_KEY)
+if (savedData) {
+  const parsedData = JSON.parse(savedData)
+  email.value = parsedData.email || '';
+  password.value = parsedData.password || '';
+
+  btn.textContent = 'Logout';
+  email.setAttribute('readonly', true);
+  password.setAttribute('readonly', true);
+}
+
+
